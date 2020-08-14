@@ -1,2 +1,2 @@
-# Entra21_Abioluz
+# Entra21_Isadora
 Repositório para as aulas de Python
