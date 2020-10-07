@@ -1,0 +1,171 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Exercícios123Python.py",
+      "provenance": [],
+      "authorship_tag": "ABX9TyOobclBhohEjgMAAWx36CDa",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/isamoresco25/Entra21_Isadora/blob/master/Exerc%C3%ADcios123Python_ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "wDYtXCimeiaS",
+        "outputId": "e0ca56a7-691d-4f33-d073-9cba7f5aa0e5",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "#--- Exercício 2 - Variáveis\n",
+        "nome=input('Digite seu nome: ')\n",
+        "sobren=input('Digite seu sobrenome: ')\n",
+        "cpf=int(input('Digite seu CPF: '))\n",
+        "rg=int(input('Digite seu RG'))\n",
+        "salario=float(input('Digite seu salário'))\n",
+        "print('''nome:{}\n",
+        "sobrenome:{}\n",
+        "CPF:{}\n",
+        "RG:{}\n",
+        "Salario{}'''.format(nome,sobren,cpf,rg,salario))"
+      ],
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Digite seu nome: Isadora \n",
+            "Digite seu sobrenome: Moresco\n",
+            "Digite seu CPF: 12818314925\n",
+            "Digite seu RG6464645353\n",
+            "Digite seu salário4000\n",
+            "nome:Isadora \n",
+            "sobrenome:Moresco\n",
+            "CPF:12818314925\n",
+            "RG:6464645353\n",
+            "Salario4000.0\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "XZIV2gYdelpT"
+      },
+      "source": [
+        "#--- Exercício 2  - Variáveis\n",
+        "\n",
+        "print('---------HOME---------\\n\\n\\n')\n",
+        "print('''1){}\n",
+        "2){}\n",
+        "3){}\n",
+        "4){}\n",
+        "5){}\\n\\n\\n'''.format('Cadastrar funcionario','Listar funcionario','Editr funcionario','Deletar funcionario','Sair'))\n",
+        "opc=int(input('Digite uma opção: '))\n",
+        "if opc==1:\n",
+        "  print('''-----Cadastrando funcionário:-----\\n\n",
+        "----------------------------------''')\n",
+        "elif opc==2:\n",
+        "  print('''-----Listar funcionários:-----\\n\n",
+        "------------------------------''')\n",
+        "elif opc==3:\n",
+        "  print('''-----Editar funcionário:-----\\n\n",
+        "-----------------------------''')\n",
+        "elif opc==4:\n",
+        "  print('''-----Deletar funcionário:-----\\n\n",
+        "------------------------------''')\n",
+        "elif opc==5:\n",
+        "  print('''---Saindo...---\\n\n",
+        "------------------''')"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "bN9QwWugkTve",
+        "outputId": "6701b7f0-6285-41c8-a30e-24e98b080f8b",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "#--- Exercício 3  - Variáveis\n",
+        "\n",
+        "print('''----ALICE NO PAÍS DAS MARAVILHAS:----\\n\\n A toca do coelho dava diretamente em um túnel, e então aprofundava-se repentinamente. Tão\\n\n",
+        "repentinamente que Alice não teve um momento sequer para pensar antes de já se encontrar caindo no\\n\n",
+        "que parecia ser bastante fundo.\\n\n",
+        "  Ou aquilo era muito fundo ou ela caía muito devagar, pois a menina tinha muito tempo para olhar\\n\n",
+        "ao seu redor e para desejar saber o que iria acontecer a seguir. Primeiro, ela tentou olhar para baixo e\\n\n",
+        "compreender para onde estava indo, mas estava escuro demais para ver alguma coisa; então, ela olhou\\n\n",
+        "para os lados do poço e percebeu que ele era cheio de prateleiras: aqui e ali ela viu mapas e quadros\\n\n",
+        "pendurados em cabides. Alice apanhou um pote de uma das prateleiras ao passar: estava etiquetado\\n\n",
+        "“GELÉIA DE LARANJA”, mas para seu grande desapontamento estava vazio: ela não jogou o pote fora por\\n\n",
+        "medo de machucar alguém que estivesse embaixo e por isso precisou fazer algumas manobras para\\n\n",
+        "recolocá-lo em uma das prateleiras.\\n\\n''')\n",
+        "print('''Título: {}\n",
+        "Edição: {}\n",
+        "Autor: {}\n",
+        "Data de publicação: {}'''.format('Alice no País das Maravilhas','2002','Lewis Carroll','1865'))"
+      ],
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "----ALICE NO PAÍS DAS MARAVILHAS:----\n",
+            "\n",
+            " A toca do coelho dava diretamente em um túnel, e então aprofundava-se repentinamente. Tão\n",
+            "\n",
+            "repentinamente que Alice não teve um momento sequer para pensar antes de já se encontrar caindo no\n",
+            "\n",
+            "que parecia ser bastante fundo.\n",
+            "\n",
+            "  Ou aquilo era muito fundo ou ela caía muito devagar, pois a menina tinha muito tempo para olhar\n",
+            "\n",
+            "ao seu redor e para desejar saber o que iria acontecer a seguir. Primeiro, ela tentou olhar para baixo e\n",
+            "\n",
+            "compreender para onde estava indo, mas estava escuro demais para ver alguma coisa; então, ela olhou\n",
+            "\n",
+            "para os lados do poço e percebeu que ele era cheio de prateleiras: aqui e ali ela viu mapas e quadros\n",
+            "\n",
+            "pendurados em cabides. Alice apanhou um pote de uma das prateleiras ao passar: estava etiquetado\n",
+            "\n",
+            "“GELÉIA DE LARANJA”, mas para seu grande desapontamento estava vazio: ela não jogou o pote fora por\n",
+            "\n",
+            "medo de machucar alguém que estivesse embaixo e por isso precisou fazer algumas manobras para\n",
+            "\n",
+            "recolocá-lo em uma das prateleiras.\n",
+            "\n",
+            "\n",
+            "Título: Alice no País das Maravilhas\n",
+            "Edição: 2002\n",
+            "Autor: Lewis Carroll\n",
+            "Data de publicação: 1865\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    }
+  ]
+}
