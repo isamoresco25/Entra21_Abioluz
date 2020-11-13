@@ -1,0 +1,26 @@
+#pessoas
+#nome, idade, cpf
+class Pessoa:
+    def __init__(self, nome, idade, CPF):
+        self.nome = nome
+        self.idade = idade
+        self.CPF = CPF
+
+    def __str__(self):
+        return f'nome: {self.nome}\n' \
+               f'idade:{self.idade}\n' \
+               f'CPF:{self.CPF}'
+
+
+
+
+
+pessoa = Pessoa('Isadora', '18', '128.183.149-25')
+
+
+def main():
+    print(pessoa)
+
+
+if __name__ == '__main__':
+    main()
