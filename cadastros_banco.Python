@@ -1,0 +1,156 @@
+from entra21.aula4.pessoas import Pessoa
+p = ''
+c = ''
+s = ''
+dinheiro = 0
+saldo = 0
+
+def cadastrar_pessoas(dataSaver):
+    nome = input('Digite seu nome: ')
+    CPF = int(input('Digite seu CPF: '))
+    idade = int(input('Digite sua idade: '))
+    global p
+    p = Pessoa(nome, CPF, idade)
+    dataSaver.salvar_pessoa(p)
+
+def cadastrar_conta(dataSaver):
+    nome_banco = input('Nome do seu banco: ')
+    ag = int(input('Número da sua agência: '))
+    tipo_conta = input('Tipo da sua conta (corrente/poupança): ')
+    numero_conta = int(input('Número da sua conta: '))
+    global c
+    c = Conta(Pessoa, nome_banco, ag, tipo_conta, numero_conta)
+    dataSaver.salvar_conta(c)
+
+def depositar():
+    global dinheiro
+    global saldo
+    dinheiro = float(input('Valor a depositar: '))
+    saldo += dinheiro
+
+def consulta_saldo():
+    global dinheiro
+    global saldo
+    print(f'Saldo: {saldo}')
+
+
+class DataSaver():
+
+    __arquivo_pessoa = "pessoas.txt"
+    __arquivo_conta = "conta.txt"
+
+    def __init__(self):
+        pass
+
+    def procurar_pessoa(self, CPF):
+        try:
+            arquivo = open(self.__arquivo_pessoa, 'r')
+        except FileNotFoundError:
+            print(u'Não há pessoas cadastradas!')
+            return None
+        for linha in arquivo:
+            nome, idade, CPF = linha.split(";")
+            p = Pessoa(nome, idade, CPF)
+        return p
+
+    def procurar_conta(self, numero_conta):
+        try:
+            arquivo = open(self.__arquivo_conta, 'r')
+        except FileNotFoundError:
+            print(u'Não há contas cadastradas!')
+            return None
+        for linha in arquivo:
+            nome_banco, ag, tipo_conta, numero_conta = linha.split(";")
+            c = Conta(Pessoa, nome_banco, ag, tipo_conta, numero_conta)
+        return c
+
+    def escrever_arquivo(self, nome_arquivo, conteudo_novo):
+        try:
+            arquivo = open(nome_arquivo, 'a')
+        except FileNotFoundError:
+            arquivo = open(nome_arquivo, 'a')
+            print(u'Arquivo criado pois nao existia')
+        arquivo.write(conteudo_novo + '\n')
+        arquivo.close()
+        return True
+
+    def salvar_pessoa(self, pessoa):
+        conteudo = f"{pessoa.nome};{pessoa.idade};{pessoa.CPF}"
+        return self.escrever_arquivo(self.__arquivo_pessoa, conteudo)
+
+    def salvar_conta(self, conta):
+        conteudo = f"{conta.nome_banco};{conta.ag};{conta.tipo_conta}; {conta.numero_conta}"
+        return self.escrever_arquivo(self.__arquivo_conta, conteudo)
+
+    def salvar_saldo(self, saldo ):
+        conteudo = f"{saldo.dinheiro}"
+        return self.escrever_arquivo(self.__arquivo_conta, conteudo)
+
+
+class Banco():
+    def __init__(self, nome_banco):
+        self.contas_banco = {}
+        self.nome_banco = nome_banco
+
+    def adicionar_conta(self, Conta):
+        self.contas_banco[Conta.numero_conta] = Conta
+
+
+class Conta():
+    def __init__(self, Pessoa, nome_banco, ag, tipo_conta, numero_conta):
+        self.pessoa = Pessoa
+        self.nome_banco = nome_banco
+        self.ag = ag
+        self.tipo_conta = tipo_conta
+        self.numero_conta = numero_conta
+
+    def depositar(self, dinheiro):
+        self.dinheiro = dinheiro
+
+    def consulta_saldo(self, saldo):
+        self.saldo = saldo
+
+
+if __name__ == "__main__":
+    dataSaver = DataSaver()
+    while True:
+        valor = int(input(
+            f"""{'='*25}
+DIGITE A OPÇÃO DESEJADA:
+1 - Cadastrar Pessoa
+2 - Cadastrar Conta
+3 - Visualizar Saldo
+4 - Fazer um depósito
+5 - Procurar pessoa
+6 - Procurar conta
+7 - Sair
+{'='*25}\n"""))
+
+        if valor == 1:
+            cadastrar_pessoas(dataSaver)
+
+        elif valor == 2:
+            cadastrar_conta(dataSaver)
+
+
+        elif valor == 3:
+            consulta_saldo()
+
+        elif valor == 4:
+            depositar()
+
+        elif valor == 5:
+            cpf = input('Qual CPF procurar?: ')
+            Procurador = DataSaver()
+            Procurador.procurar_pessoa(cpf)
+            print(p)
+
+        elif valor == 6:
+            num_conta = input('Qual conta procurar?: ')
+            Procurador = DataSaver()
+            Procurador.procurar_conta(num_conta)
+            print(c)
+
+        elif valor == 7:
+            print("Agradecemos a sua visita!")
+            break
